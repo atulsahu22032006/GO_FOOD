@@ -1,0 +1,5 @@
+- [x] Add skeleton loader + toast/banner styles in my-app/src/App.css
+- [x] Update Home.js loading UI to skeleton cards (no logic changes)
+- [x] Update MyOrders.js loading UI to skeleton order cards (no logic changes)
+- [x] Update Cart.js success/error UI to toast-like banners (no logic changes)
+- [ ] Sanity check: build/tests and verify routes still work

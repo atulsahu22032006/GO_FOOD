@@ -75,11 +75,34 @@ export default function MyOrders() {
                     </div>
 
                     {loading && (
-                        <div className="text-center py-5">
-                            <div className="spinner-border text-danger" role="status">
-                                <span className="visually-hidden">Loading orders...</span>
-                            </div>
-                            <p className="mt-3 text-muted mb-0">Loading your orders...</p>
+                        <div className="orders-list">
+                            {[...Array(3)].map((_, i) => (
+                                <div className="order-card" key={i}>
+                                    <div className="order-card-header">
+                                        <div style={{ flex: 1 }}>
+                                            <div className="gofood-skeleton-line w-70 gofood-skeleton" />
+                                            <div className="gofood-skeleton-line w-40 gofood-skeleton" style={{ marginTop: 10 }} />
+                                        </div>
+                                        <div style={{ textAlign: "right" }}>
+                                            <div className="gofood-skeleton-badge gofood-skeleton" />
+                                            <div className="gofood-skeleton-line w-55 gofood-skeleton" style={{ marginTop: 10 }} />
+                                        </div>
+                                    </div>
+
+                                    <div className="order-items">
+                                        {[...Array(4)].map((__, idx) => (
+                                            <div className="order-item-row" key={idx} style={{ borderBottomStyle: "dashed" }}>
+                                                <span>
+                                                    <div className="gofood-skeleton-line w-85 gofood-skeleton" />
+                                                </span>
+                                                <span>
+                                                    <div className="gofood-skeleton-line w-40 gofood-skeleton" />
+                                                </span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     )}
 

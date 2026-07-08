@@ -1256,3 +1256,169 @@ h6 {
         text-align: right;
     }
 }
+
+/* ==========================================================================
+   Premium Loading States (Skeleton + Shimmer)
+   ========================================================================== */
+@keyframes gofood-shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.gofood-skeleton {
+    display: block;
+    border-radius: 12px;
+    background: #f1f1f1;
+    position: relative;
+    overflow: hidden;
+}
+.gofood-skeleton::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(241, 241, 241, 0) 0%,
+        rgba(255, 255, 255, 0.65) 50%,
+        rgba(241, 241, 241, 0) 100%
+    );
+    transform: translateX(-100%);
+    animation: gofood-shimmer 1.15s ease-in-out infinite;
+    background-size: 200% 100%;
+}
+
+.gofood-skeleton-card {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    background: var(--bg-white);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    height: 100%;
+}
+
+.gofood-skeleton-img {
+    height: 220px;
+}
+
+.gofood-skeleton-line {
+    height: 12px;
+    border-radius: 999px;
+    background: #f1f1f1;
+}
+
+.gofood-skeleton-line.w-70 {
+    width: 70%;
+}
+.gofood-skeleton-line.w-85 {
+    width: 85%;
+}
+.gofood-skeleton-line.w-55 {
+    width: 55%;
+}
+.gofood-skeleton-line.w-40 {
+    width: 40%;
+}
+
+.gofood-skeleton-block {
+    padding: 16px 16px 18px;
+}
+
+.gofood-skeleton-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.gofood-skeleton-badge {
+    height: 28px;
+    width: 92px;
+    border-radius: 999px;
+}
+
+/* ==========================================================================
+   Premium Toast-like Banners (UI-only)
+   ========================================================================== */
+.gofood-banner {
+    border-radius: 14px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-white);
+    box-shadow: var(--shadow-sm);
+    padding: 0.9rem 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    animation: gofood-pop 220ms ease-out both;
+}
+@keyframes gofood-pop {
+    from {
+        transform: translateY(8px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+.gofood-banner-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    flex: 0 0 auto;
+    border: 1px solid var(--border-color);
+    background: rgba(226, 55, 68, 0.06);
+    color: var(--primary-color);
+}
+.gofood-banner-body {
+    flex: 1;
+}
+.gofood-banner-title {
+    font-weight: 900;
+    margin-bottom: 2px;
+    color: var(--secondary-color);
+}
+.gofood-banner-text {
+    color: var(--text-muted);
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.gofood-banner-success .gofood-banner-icon {
+    background: rgba(36, 150, 63, 0.08);
+    color: var(--success-color);
+    border-color: rgba(36, 150, 63, 0.18);
+}
+.gofood-banner-danger .gofood-banner-icon {
+    background: rgba(226, 55, 68, 0.08);
+    color: var(--primary-color);
+    border-color: rgba(226, 55, 68, 0.18);
+}
+
+.gofood-banner-dismiss {
+    background: transparent;
+    border: 0;
+    color: #7a7a7a;
+    cursor: pointer;
+    padding: 4px 6px;
+    border-radius: 10px;
+    transition: var(--transition-smooth);
+}
+.gofood-banner-dismiss:hover {
+    background: rgba(0, 0, 0, 0.03);
+    color: var(--secondary-color);
+}
+
+/* Small utility spacing for banners on pages */
+.gofood-page-message {
+    margin: 0.9rem 0 1.2rem;
+}

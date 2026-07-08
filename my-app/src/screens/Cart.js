@@ -73,14 +73,26 @@ export default function Cart() {
                     </div>
 
                     {error && (
-                        <div className="alert alert-danger" role="alert">
-                            {error}
+                        <div className="gofood-page-message">
+                            <div className="gofood-banner gofood-banner-danger" role="alert">
+                                <div className="gofood-banner-icon">!</div>
+                                <div className="gofood-banner-body">
+                                    <div className="gofood-banner-title">Something went wrong</div>
+                                    <p className="gofood-banner-text">{error}</p>
+                                </div>
+                            </div>
                         </div>
                     )}
 
                     {success && (
-                        <div className="alert alert-success" role="alert">
-                            {success}
+                        <div className="gofood-page-message">
+                            <div className="gofood-banner gofood-banner-success" role="alert">
+                                <div className="gofood-banner-icon">✓</div>
+                                <div className="gofood-banner-body">
+                                    <div className="gofood-banner-title">Order placed</div>
+                                    <p className="gofood-banner-text">{success}</p>
+                                </div>
+                            </div>
                         </div>
                     )}
 

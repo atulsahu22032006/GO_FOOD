@@ -53,8 +53,24 @@ export default function Home() {
                     </div>
 
                     {loading && (
-                        <div className="alert alert-light border" role="status">
-                            Loading food items...
+                        <div className="gofood-page-message">
+                            <div className="row g-4">
+                                {[...Array(6)].map((_, i) => (
+                                    <div className="col-lg-4 col-md-6" key={i}>
+                                        <div className="gofood-skeleton-card">
+                                            <div className="gofood-skeleton-img gofood-skeleton" />
+                                            <div className="gofood-skeleton-block">
+                                                <div className="gofood-skeleton-line w-85 gofood-skeleton" />
+                                                <div className="gofood-skeleton-line w-70 gofood-skeleton" style={{ marginTop: 10 }} />
+                                                <div className="gofood-skeleton-footer">
+                                                    <div className="gofood-skeleton-line w-40 gofood-skeleton" />
+                                                    <div className="gofood-skeleton-badge gofood-skeleton" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     )}
 
