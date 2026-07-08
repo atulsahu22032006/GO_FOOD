@@ -4,7 +4,6 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 
-
 const router = express.Router();
 
 router.post(
@@ -116,5 +115,4 @@ router.post(
             }
       }
 );
-
 export default router;

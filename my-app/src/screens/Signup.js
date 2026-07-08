@@ -153,7 +153,7 @@ export default function Signup() {
                         </div>
 
                         <button className="btn z-auth-alt w-100" type="button">
-                            Continue with Google
+                            <i className="ri-google-fill" style={{ color: "var(--primary-color)", fontSize: "1.2rem", marginRight: "8px" }}></i> Continue with Google
                         </button>
 
                         <p className="z-auth-footer mb-0">

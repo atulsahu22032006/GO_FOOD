@@ -18,13 +18,13 @@ export default function Navbar() {
     return (
         <>
             <div>
-                <nav className="navbar navbar-expand-lg navbar-dark gofood-navbar">
+                <nav className="navbar navbar-expand-lg navbar-light gofood-navbar py-3 shadow-sm bg-white">
                     <div className="container">
-                        <Link className="navbar-brand gofood-brand" to="/">
-                            GoFood
+                        <Link className="navbar-brand gofood-brand text-danger" to="/">
+                            Go<span style={{ color: "var(--primary-color)" }}>Food</span>
                         </Link>
                         <button
-                            className="navbar-toggler"
+                            className="navbar-toggler border-0"
                             type="button"
                             data-bs-toggle="collapse"
                             data-bs-target="#navbarNav"
@@ -37,37 +37,36 @@ export default function Navbar() {
                         <div className="collapse navbar-collapse" id="navbarNav">
                             <ul className="navbar-nav ms-auto align-items-lg-center gap-lg-3">
                                 <li className="nav-item">
-                                    <Link className="nav-link active" aria-current="page" to="/">
+                                    <Link className="nav-link active fw-medium" aria-current="page" to="/">
                                         Home
                                     </Link>
                                 </li>
                                 {isLoggedIn ? (
                                     <>
                                         <li className="nav-item">
-                                            <Link className="nav-link" to="/myorders">
+                                            <Link className="nav-link fw-medium" to="/myorders">
                                                 My Orders
                                             </Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link className="nav-link cart-nav-link" to="/cart">
+                                            <Link className="nav-link cart-nav-link fw-medium position-relative" to="/cart">
                                                 Cart
                                                 {cartCount > 0 && (
-                                                    <span className="cart-badge">{cartCount}</span>
+                                                    <span className="badge bg-danger rounded-pill ms-1 align-middle">{cartCount}</span>
                                                 )}
                                             </Link>
                                         </li>
                                         {displayName && (
                                             <li className="nav-item">
-                                                <span className="nav-link text-white-50 small me-2">
-                                                    {displayName}
+                                                <span className="nav-link user-greeting me-2">
+                                                    👋 {displayName}
                                                 </span>
                                             </li>
                                         )}
                                         <li className="nav-item">
                                             <button
-                                                className="btn btn-outline-danger btn-sm px-3 py-1.5"
+                                                className="btn gofood-btn-primary"
                                                 onClick={handleLogout}
-                                                style={{ borderRadius: "6px" }}
                                             >
                                                 Logout
                                             </button>
@@ -76,12 +75,12 @@ export default function Navbar() {
                                 ) : (
                                     <>
                                         <li className="nav-item">
-                                            <Link className="nav-link" to="/login">
+                                            <Link className="nav-link fw-medium" to="/login">
                                                 Login
                                             </Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link className="nav-link" to="/signup">
+                                            <Link className="btn gofood-btn-outline" to="/signup">
                                                 Signup
                                             </Link>
                                         </li>

@@ -198,7 +198,7 @@ export default function Cart() {
 
                                     <Link
                                         to="/"
-                                        className="btn btn-outline-secondary w-100 mt-2"
+                                        className="btn gofood-btn-outline w-100 mt-2"
                                     >
                                         Continue Ordering
                                     </Link>

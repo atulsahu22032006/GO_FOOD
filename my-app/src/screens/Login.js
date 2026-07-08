@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import API_BASE_URL from "../config";
+import { useAuth } from "../context/AuthContext";
 
 export default function Login() {
     const [credentials, setCredentials] = useState({
@@ -9,6 +10,7 @@ export default function Login() {
     });
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
+    const { login } = useAuth();
     const navigate = useNavigate();
 
     const handleChange = (event) => {
@@ -41,7 +43,7 @@ export default function Login() {
                 return;
             }
 
-            localStorage.setItem("userEmail", credentials.email);
+            login(json.authToken, { email: credentials.email, name: json.user?.name || "" });
             navigate("/");
         } catch (err) {
             setError("Unable to connect to the server");
@@ -118,7 +120,7 @@ export default function Login() {
                         </div>
 
                         <button className="btn z-auth-alt w-100" type="button">
-                            Continue with Google
+                            <i className="ri-google-fill" style={{ color: "var(--primary-color)", fontSize: "1.2rem", marginRight: "8px" }}></i> Continue with Google
                         </button>
 
                         <p className="z-auth-footer mb-0">

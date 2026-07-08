@@ -10,6 +10,7 @@ export default function Home() {
     const [foodCategory, setFoodCategory] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
+    const [searchQuery, setSearchQuery] = useState("");
 
     const loadData = async () => {
         try {
@@ -37,7 +38,7 @@ export default function Home() {
     return (
         <>
             <Navbar />
-            <Carousal />
+            <Carousal searchQuery={searchQuery} onSearchChange={setSearchQuery} />
 
             <section className="food-list-section">
                 <div className="container">
@@ -63,23 +64,30 @@ export default function Home() {
                         </div>
                     )}
 
-                    {!loading && !error && foodCategory.map((category) => (
-                        <div className="mb-5" key={category.CategoryName}>
-                            <h3 className="category-title mb-3">
-                                {category.CategoryName}
-                            </h3>
+                    {!loading && !error && foodCategory.map((category) => {
+                        const filteredItems = foodItems.filter((item) =>
+                            item.CategoryName === category.CategoryName &&
+                            item.name.toLowerCase().includes(searchQuery.toLowerCase())
+                        );
 
-                            <div className="row g-4">
-                                {foodItems
-                                    .filter((item) => item.CategoryName === category.CategoryName)
-                                    .map((item) => (
+                        if (filteredItems.length === 0) return null;
+
+                        return (
+                            <div className="mb-5" key={category.CategoryName}>
+                                <h3 className="category-title mb-3">
+                                    {category.CategoryName}
+                                </h3>
+
+                                <div className="row g-4">
+                                    {filteredItems.map((item) => (
                                         <div className="col-lg-4 col-md-6" key={item._id || item.name}>
                                             <FoodCard foodItem={item} />
                                         </div>
                                     ))}
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </section>
 
